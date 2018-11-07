@@ -1,4 +1,10 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import HomePage from './scenes/HomePage';
+import LoginPage from './scenes/LoginPage';
 
-const App = () => <div>Hello World</div>
+const App = () => <div>
+    <Route path='/' exact component={HomePage} />
+    <Route path='/login' exact component={LoginPage} />
+</div>
 export default App;
