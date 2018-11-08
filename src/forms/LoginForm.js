@@ -26,6 +26,7 @@ class LoginForm extends Component {
   onSubmit = (e) => {
     const { data } = this.state;
     const err = this.validate(data);
+    this.setState({ loading: true });
 
     setTimeout(() => {
       this.setState({ errors: err, loading: false });
@@ -43,7 +44,6 @@ class LoginForm extends Component {
 
   validate = (data) => {
     const errors = {};
-    this.setState({ loading: true });
 
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
     if (!data.password) errors.password = "Can't be blank";
