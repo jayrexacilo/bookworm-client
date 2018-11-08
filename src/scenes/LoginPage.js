@@ -1,24 +1,15 @@
 import React from 'react';
-import {
-  Button, Form, FormGroup, Label, Input, Row, Col,
-} from 'reactstrap';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Row, Col } from 'reactstrap';
+import LoginForm from '../forms/LoginForm';
 
 const LoginPage = () => (
   <Row>
     <Col md="6">
       <Link to="/">Home</Link>
-      <Form>
-        <FormGroup>
-          <Label for="email">Email</Label>
-          <Input type="email" name="email" id="email" placeholder="example@example.com" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="password">Password</Label>
-          <Input type="password" name="password" id="password" placeholder="enter password" />
-        </FormGroup>
-        <Button color="primary">Login</Button>
-      </Form>
+      <LoginForm />
     </Col>
   </Row>
 );
