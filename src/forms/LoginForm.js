@@ -25,6 +25,7 @@ class LoginForm extends Component {
 
   onSubmit = (e) => {
     const { data } = this.state;
+    const { submit } = this.props;
     const err = this.validate(data);
     this.setState({ loading: true });
 
@@ -32,11 +33,7 @@ class LoginForm extends Component {
       this.setState({ errors: err, loading: false });
 
       if (Object.keys(err).length === 0) {
-        // this.props
-        //   .submit(this.state.data)
-        //   .catch(err =>
-        //     this.setState({ errors: err.response.data.errors, loading: false })
-        //   );
+        submit(data);
       }
     }, 500);
     e.preventDefault();
@@ -78,8 +75,8 @@ class LoginForm extends Component {
   }
 }
 
-// LoginForm.propTypes = {
-//     submit: PropTypes.func.isRequired
-// };
+LoginForm.propTypes = {
+  submit: PropTypes.func.isRequired
+};
 
 export default LoginForm;
